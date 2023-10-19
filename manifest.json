@@ -1,20 +1,26 @@
 {
   "manifest_version": 3,
-  "name": "Tab regexp renamer",
+  "name": "Tab Renamer Regexp",
   "version": "1.0",
   "description": "Rename tabs by using a regexp on the url",
-
   "icons": {
     "16": "icon-16.png",
     "32": "icon-32.png",
     "48": "icon-48.png",
     "128": "icon-128.png"
   },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage"
+  ],
   "content_scripts": [
     {
       "js": ["content.js"],
       "matches": [
-        "*"
+        "https://*/*",
+        "http://*/*"
       ]
     }
   ]
