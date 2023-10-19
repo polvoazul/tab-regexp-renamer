@@ -1,7 +1,7 @@
 async function main() {
   document.getElementById("save").onclick = save_rules;
 
-  let rules = (await chrome.storage.local.get("rules")).rules // get all
+  let rules = (await chrome.storage.sync.get("rules")).rules // get all
   rules = rules ? JSON.parse(rules) : []
   let rootDiv = document.getElementById("rules")
   console.log(rules)
@@ -41,8 +41,8 @@ async function save_rules() {
     data.push(rule)
   }
   console.log("Saving...", data)
-  await chrome.storage.local.set({ rules: JSON.stringify(data) })
-  document.getElementById("info").innerHTML = "Saved!"
+  await chrome.storage.sync.set({ rules: JSON.stringify(data) })
+  document.getElementById("info").innerHTML = `Saved!` // <p>Current url: ${1}</p> <p> ${1}`
   setTimeout(() => document.getElementById("info").innerHTML = "", 5000)
   main()
 }

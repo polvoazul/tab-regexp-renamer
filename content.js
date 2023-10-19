@@ -21,5 +21,7 @@ async function set_title() {
   }
 }
 
+
 window.title_set_title = set_title
 window.title_renamer = setInterval(set_title, 10000) // TODO: change this brute force to events on title / href / rules
+set_title()
